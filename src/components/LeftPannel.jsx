@@ -16,6 +16,7 @@ const LeftPanel = () => {
       <Link to="/students">Students</Link>
       <div>Faculty</div>
       <div>Courses</div>
+      <div>Fees</div>
     </div>
   );
 };
