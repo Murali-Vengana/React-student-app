@@ -9,6 +9,13 @@ function Student() {
  
   const onSubmit = (data) => {
     console.log(data);
+    fetch("http://localhost:9090/student/saveStudent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
   };
  
   return (
