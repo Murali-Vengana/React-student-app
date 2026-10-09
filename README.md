@@ -1,70 +1,173 @@
-# Getting Started with Create React App
+<img width="1536" height="1024" alt="React Student App Architecture Guide" src="https://github.com/user-attachments/assets/63c5f524-0bb6-46ee-b5ec-a2b1b12f0936" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# React Student Management Application
 
-In the project directory, you can run:
+A React-based Student Management Application that provides a simple interface to manage student records. The application supports adding students, viewing student details, and performing CRUD operations through REST API integration with a Spring Boot backend.
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Add Student:** Register students with personal and academic details.
+- **List Students:** View registered students in a tabular format.
+- **Edit Student:** Update existing student information.
+- **Delete Student:** Remove student records.
+- **Form Validation:** Validate mandatory fields using React Hook Form.
+- **Navigation:** Navigate between application pages using React Router.
+- **REST API Integration:** Communicate with the Spring Boot backend to manage student data.
+- **Reusable Components:** Organize the UI into reusable React components.
+- **Action Icons:** Use edit and delete icons for student record management.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Technologies Used
 
-### `npm test`
+- **Frontend:** React.js, JavaScript, HTML5, CSS3
+- **Routing:** React Router DOM
+- **Form Handling:** React Hook Form
+- **API Integration:** Axios / Fetch API, depending on the service implementation
+- **Backend:** Spring Boot REST APIs
+- **Database:** MySQL
+- **Package Management:** npm
+- **Version Control:** Git and GitHub
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Project Structure
 
-### `npm run build`
+```text
+React-student-app/
+├── public/
+│   ├── images/
+│   │   ├── editIcon.png
+│   │   └── deleteIcon.png
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── LeftPanel.jsx
+│   │   ├── Student.jsx
+│   │   └── ListAllStudents.jsx
+│   ├── services/
+│   │   └── StudentService.jsx
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+├── package-lock.json
+└── README.md
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📌 Component Responsibilities
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| File | Description |
+|---|---|
+| `App.jsx` | Main application component and page routing |
+| `LeftPanel.jsx` | Sidebar navigation |
+| `Student.jsx` | Student registration form and form validation |
+| `ListAllStudents.jsx` | Displays student records and provides edit/delete actions |
+| `StudentService.jsx` | Handles communication with backend REST APIs |
+| `App.css` | Application-level styling |
+| `index.css` | Global CSS styles |
+| `index.js` | React application entry point |
+| `public/images/` | Contains icons used in the UI |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🔄 Application Flow
 
-### `npm run eject`
+1. Launch the React application.
+2. Navigate using the sidebar.
+3. Open the Add Student page and enter student details.
+4. Validate the form and submit the data to the backend.
+5. The Spring Boot REST API processes the request and persists student information in MySQL.
+6. Open the student list to retrieve and display registered students.
+7. Edit or delete student records using the available action icons.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Architecture
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```text
+React UI
+   |
+   ├── Student.jsx
+   └── ListAllStudents.jsx
+            |
+            v
+   StudentService.jsx
+            |
+            | HTTP / JSON
+            v
+   Spring Boot REST API
+            |
+            v
+          MySQL
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ⚙️ Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+- Node.js and npm
+- A running Spring Boot backend
+- MySQL database configured in the backend
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Clone the repository:
 
-### Code Splitting
+```bash
+git clone https://github.com/Murali-Vengana/React-student-app.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Navigate to the project directory:
 
-### Analyzing the Bundle Size
+```bash
+cd React-student-app
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Install dependencies:
 
-### Making a Progressive Web App
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Start the development server:
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Open the application at:
 
-### Deployment
+```text
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔗 Backend Integration
 
-### `npm run build` fails to minify
+Configure the backend API base URL in the service layer to match your Spring Boot server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Example:
+
+```text
+http://localhost:9090
+```
+
+Ensure that the Spring Boot backend is running and that CORS allows requests from the React development server.
+
+## 🎯 Learning Objectives
+
+This project demonstrates practical usage of:
+
+- React functional components and component composition
+- React Hooks and form handling
+- Client-side routing
+- Form validation and error handling
+- REST API integration
+- CRUD operations
+- Frontend and backend integration
+- Git and GitHub workflows
+
+## 👨‍💻 Author
+
+**Murali Vengana**
+
+GitHub: [Murali-Vengana](https://github.com/Murali-Vengana)
+
+---
+
+*This project is intended for learning and demonstrating student management workflows using React and Spring Boot.*
