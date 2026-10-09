@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
+import Button from "react-bootstrap/Button";
  
-function Student() {
+function Student({ onSuccess }) {
   const {
     register,
     handleSubmit,
@@ -15,14 +16,19 @@ function Student() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
+    }).then((response) => {
+      if (response.ok) {
+        console.log("Student data submitted successfully");
+      } else {
+        console.error("Failed to submit student data");
+      }
     });
+    onSuccess(); // Call the onSuccess callback to close the modal after successful submission
   };
  
   return (
     <div>
-      <h1>Add Student</h1>
- 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} id="studentForm">
         {/* Student Name */}
         <div style={{ marginBottom: "15px" }}>
           <label htmlFor="studentName">Student Name:</label>
@@ -189,17 +195,6 @@ function Student() {
             <span style={{ color: "red" }}>{errors.course.message}</span>
           )}
         </div>
- 
-        {/* Submit */}
-        <button
-          type="submit"
-          style={{
-            padding: "10px 15px",
-            cursor: "pointer",
-          }}
-        >
-          Submit
-        </button>
       </form>
     </div>
   );
