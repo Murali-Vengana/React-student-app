@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import editIcon from "../images/edit.jpeg";
 import deleteIcon from "../images/delete.png";
 import StudentShimmer from "./StudentShimmer";
+import StudentModal from "./StudentModal";
 
-function ListAllStudents() {
+function ListAllStudents({ onEdit }) {
   const [allStudents, setAllStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -13,6 +14,11 @@ function ListAllStudents() {
   useEffect(() => {
     fetchStudents();
   }, []);
+
+  const handleEdit = (student) => {
+    // Implement the edit functionality here
+    console.log("Edit student:", student);
+  };
 
   const fetchStudents = async () => {
     try {
@@ -87,11 +93,17 @@ function ListAllStudents() {
             <td>{student.dob}</td>
             <td>{student.hobbies}</td>
             <td>
-              <img
-                src={editIcon}
-                alt="Edit"
-                style={{ width: "20px", height: "20px" }}
-              />
+              <button
+                type="button"
+                onClick={() => onEdit(student)}
+                aria-label={`Edit ${student.studentName}`}
+              >
+                <img
+                  src={editIcon}
+                  alt="Edit"
+                  style={{ width: "20px", height: "20px" }}
+                />
+              </button>
             </td>
             <td>
               <img
