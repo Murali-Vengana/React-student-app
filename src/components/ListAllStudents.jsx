@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import { useEffect, useState } from "react";
 import editIcon from "../images/edit.jpeg";
 import deleteIcon from "../images/delete.png";
+import StudentShimmer from "./StudentShimmer";
 
 function ListAllStudents() {
   const [allStudents, setAllStudents] = useState([]);
@@ -52,23 +53,13 @@ function ListAllStudents() {
   };
 
   if (loading) {
-    return <p className="loading-message">Loading students...</p>;
-  }
-
-  if (error) {
-    return (
-      <div className="error-container" role="alert">
-        <p>{error}</p>
-        <button onClick={fetchStudents}>Try Again</button>
-      </div>
-    );
+    return <StudentShimmer />;
   }
 
   if (allStudents.length === 0) {
     return (
       <div className="empty-container">
-        <h3>No Students Found</h3>
-        <p>There are no student records yet. Add a student to get started.</p>
+        <p style={{ color: "red" }}>No Students Found.</p>
       </div>
     );
   }
