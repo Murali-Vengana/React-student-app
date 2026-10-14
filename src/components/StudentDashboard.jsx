@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import StudentModal from "./StudentModal";
 import ListAllStudents from "./ListAllStudents";
 
-function AllStudents() {
+function StudentDashboard() {
   const [showModal, setShowModal] = useState(false);
   const [mode, setMode] = useState("add");
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -15,6 +15,7 @@ function AllStudents() {
   };
 
   const handleEdit = (student) => {
+    console.log("Edit student:", student);
     setMode("edit");
     setSelectedStudent(student);
     setShowModal(true);
@@ -42,4 +43,4 @@ function AllStudents() {
   );
 }
 
-export default AllStudents;
+export default StudentDashboard;

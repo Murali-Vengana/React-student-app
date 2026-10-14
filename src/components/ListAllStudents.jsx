@@ -15,11 +15,6 @@ function ListAllStudents({ onEdit }) {
     fetchStudents();
   }, []);
 
-  const handleEdit = (student) => {
-    // Implement the edit functionality here
-    console.log("Edit student:", student);
-  };
-
   const fetchStudents = async () => {
     try {
       setLoading(true);
@@ -28,7 +23,6 @@ function ListAllStudents({ onEdit }) {
       const response = await fetch(
         "http://localhost:9090/students/getAllStudents",
       );
-
       // Handle HTTP errors such as 404 or 500
       if (!response.ok) {
         throw new Error(
@@ -37,7 +31,7 @@ function ListAllStudents({ onEdit }) {
       }
 
       const data = await response.json();
-
+      console.log("Fetched students:", data);
       // Validate the response
       if (!Array.isArray(data)) {
         throw new Error("Invalid response received from the server.");
@@ -90,7 +84,7 @@ function ListAllStudents({ onEdit }) {
             <td>{student.studentName}</td>
             <td>{student.email}</td>
             <td>{student.sex}</td>
-            <td>{student.dob}</td>
+            <td>{student.dob.split("T")[0]}</td>
             <td>{student.hobbies}</td>
             <td>
               <button

@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Student from "./Student";
+import StudentForm from "./StudentForm";
 
 function StudentModal({ show, onClose, student, mode }) {
   return (
@@ -12,7 +12,7 @@ function StudentModal({ show, onClose, student, mode }) {
       </Modal.Header>
 
       <Modal.Body>
-        <Student mode={mode} student={student} onSuccess={onClose} />
+        <StudentForm mode={mode} student={student} onSuccess={onClose} />
       </Modal.Body>
 
       <Modal.Footer>
