@@ -7,7 +7,11 @@ function StudentModal({ show, onClose, student, mode }) {
     <Modal show={show} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>
-          {mode === "edit" ? "Edit Student" : "Add Student"}
+          {mode === "edit"
+            ? "Edit Student"
+            : mode === "delete"
+              ? "Delete Student"
+              : "Add Student"}
         </Modal.Title>
       </Modal.Header>
 
@@ -21,7 +25,11 @@ function StudentModal({ show, onClose, student, mode }) {
         </Button>
 
         <Button variant="primary" type="submit" form="studentForm">
-          {mode === "edit" ? "Update Student" : "Save Student"}
+          {mode === "edit"
+            ? "Update Student"
+            : mode === "delete"
+              ? "Delete Student"
+              : "Add Student"}
         </Button>
       </Modal.Footer>
     </Modal>

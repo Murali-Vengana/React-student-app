@@ -6,7 +6,7 @@ import deleteIcon from "../images/delete.png";
 import StudentShimmer from "./StudentShimmer";
 import StudentModal from "./StudentModal";
 
-function ListAllStudents({ onEdit }) {
+function ListAllStudents({ onEdit, onDelete }) {
   const [allStudents, setAllStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -100,11 +100,17 @@ function ListAllStudents({ onEdit }) {
               </button>
             </td>
             <td>
-              <img
-                src={deleteIcon}
-                alt="Delete"
-                style={{ width: "20px", height: "20px" }}
-              />
+              <button
+                type="button"
+                onClick={() => onDelete(student)}
+                aria-label={`Edit ${student.studentName}`}
+              >
+                <img
+                  src={deleteIcon}
+                  alt="Delete"
+                  style={{ width: "20px", height: "20px" }}
+                />
+              </button>
             </td>
           </tr>
         ))}

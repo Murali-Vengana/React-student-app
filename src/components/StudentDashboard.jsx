@@ -21,6 +21,13 @@ function StudentDashboard() {
     setShowModal(true);
   };
 
+  const handleDelete = (student) => {
+    console.log("Delete student:", student);
+    setMode("delete");
+    setSelectedStudent(student);
+    setShowModal(true);
+  };
+
   const handleClose = () => setShowModal(false);
 
   return (
@@ -31,7 +38,7 @@ function StudentDashboard() {
         Add Student
       </Button>
 
-      <ListAllStudents onEdit={handleEdit} />
+      <ListAllStudents onEdit={handleEdit} onDelete={handleDelete} />
 
       <StudentModal
         show={showModal}
